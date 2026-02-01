@@ -151,7 +151,7 @@ const Contact = () => {
                 name="message"
                 required
                 rows={5}
-                className="field-input"
+                className="field-input resize-none"
                 placeholder="Share your thoughts or inquiries..."
               />
             </label>
