@@ -56,7 +56,7 @@ const About = () => {
                 Hi, I'm Saizan Khan
               </p>
               <p className="subtext text-gray-400 text-lg leading-relaxed">
-                Over the last 4 years, I developed my frontend and backend dev
+                Over the years, I developed my frontend and backend dev
                 skills to deliver dynamic and software and web applications.
               </p>
             </div>
