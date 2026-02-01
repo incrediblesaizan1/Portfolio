@@ -88,7 +88,7 @@ const Contact = () => {
         <img
           src="/terminal.png"
           alt="terminal-bg"
-          className="absolute inset-0 h-[130vh] md:left-[10vw] hidden md:block" // Hidden on small screens, shown on md+
+          className="absolute inset-0 h-[130vh] mx-auto hidden md:block" // Hidden on small screens, shown on md+
         />
         {/* Mobile Image */}
         <img
