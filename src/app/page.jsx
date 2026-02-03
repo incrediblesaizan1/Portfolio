@@ -32,7 +32,7 @@ export default function Home() {
       <TerminalAnimation onAnimationComplete={handleAnimationComplete} />
 
       <div
-        className={`relative transition-opacity duration-1000 ${showMainContent ? "opacity-100" : "opacity-0 h-0 overflow-hidden"}`}
+        className={`transition-opacity duration-1000 ${showMainContent ? "relative opacity-100" : "fixed inset-0 opacity-0 pointer-events-none -z-10"}`}
       >
         <div className="relative">
           <Navbar />

@@ -1,5 +1,6 @@
 'use client';
 
+import ScrollIndicator from '@/components/ScrollIndicator';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -33,6 +34,7 @@ export default function OverlayText() {
                 <p className="text-xl md:text-2xl font-light tracking-[0.2em] text-gray-300 mix-blend-difference">
                     CREATIVE DEVELOPER
                 </p>
+                <ScrollIndicator />
             </motion.div>
 
             {/* Section 2 */}
