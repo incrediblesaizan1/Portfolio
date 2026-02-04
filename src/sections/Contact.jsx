@@ -68,7 +68,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="section-padding my-20" id="contact">
+    <section className="mt-20 md:mt-50 md:mx-10" id="contact">
       <Alert
         isOpen={alert.show}
         onClose={closeAlert}

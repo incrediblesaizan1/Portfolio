@@ -32,7 +32,7 @@ const Projects = () => {
   const currentProject = myProjects[selectedProjectIndex];
 
   return (
-    <section className="relative sm:px-10 md:px-5" id="project">
+    <section className="relative sm:px-10 md:px-10 pt-10" id="project">
       {/* head-text replaced */}
       <TitleHeader
         title="MY WORK"

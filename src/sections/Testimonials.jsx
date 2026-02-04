@@ -23,7 +23,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section id="testimonials" className="flex-center section-padding">
+    <section id="testimonials" className="flex-center mt-20 md:mt-50 md:mx-4">
       <div className="w-full h-full md:-px-5 md:px-5">
         <TitleHeader
           title="TESTIMONIALS"
