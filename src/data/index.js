@@ -356,3 +356,17 @@ export const testimonials = [
     imgPath: "/client6.png",
   },
 ];
+
+export const mySocials = [
+  {
+    name: "Github",
+    href: "https://github.com/incrediblesaizan1",
+    icon: "/github.svg",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/incrediblesaizan1" ,
+    icon: "https://static.cdninstagram.com/rsrc.php/yr/r/rzWiSjZRxk5.webp",
+  },
+
+];

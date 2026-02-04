@@ -11,6 +11,7 @@ import Testimonials from "@/sections/Testimonials";
 import Contact from "@/sections/Contact";
 import Approach from "@/sections/Approach";
 import Navbar from "@/components/Navbar";
+import Footer from "@/sections/Footer";
 
 export default function Home() {
   const [showMainContent, setShowMainContent] = useState(false);
@@ -46,6 +47,7 @@ export default function Home() {
         <Approach />
         <Testimonials />
         <Contact />
+        <Footer />
       </div>
     </main>
   );
