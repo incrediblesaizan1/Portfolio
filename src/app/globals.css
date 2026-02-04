@@ -1,5 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
 @import "tailwindcss";
-
 /* ========================================
    THEME CONFIGURATION
    ======================================== */
@@ -92,7 +92,7 @@ html {
 
 body {
   background-color: #000000;
-  font-family: "Funnel Display", "Mona Sans", sans-serif;
+  font-family: "Playwrite NZ Basic", cursive;
   color: white;
   overflow-x: hidden;
 }
