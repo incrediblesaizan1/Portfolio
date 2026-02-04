@@ -28,6 +28,7 @@ export default function ScrollyCanvas() {
   // Preload images
   useEffect(() => {
     const loadImages = async () => {
+      console.log("ScrollAnimation: Starting preload of sequence images...");
       const frameCount = 192;
       const promises = [];
 
