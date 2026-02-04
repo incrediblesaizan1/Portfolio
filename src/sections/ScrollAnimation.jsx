@@ -36,7 +36,7 @@ export default function ScrollyCanvas() {
       for (let i = 0; i < frameCount; i++) {
         const filename = `frame_${String(i).padStart(3, "0")}.webp`;
         const img = new Image();
-        img.src = `/sequence2_final/${filename}`;
+        img.src = `/sequence2/${filename}`;
 
         const promise = new Promise((resolve, reject) => {
           img.onload = () => {
