@@ -276,39 +276,75 @@ export const iconsList = [
   },
   {
     name: "css",
-    image: "/css.svg",
+    image: "/css.png",
   },
   {
     name: "javascript",
-    image: "/js.svg",
+    image: "/js.jpg",
   },
   {
+    name: "bootstrap",
+    image: "/bootstrap.svg",
+  },
+  { 
     name: "react",
     image: "/react.svg",
   },
   {
     name: "typescript",
-    image: "/ts.svg",
+    image: "/typescript.png",
+  },
+  {
+    name: "ExpressJS",
+    image: "/express.svg",
   },
   {
     name: "github",
-    image: "/github.svg",
+    image: "/github.png",
   },
   {
     name: "gsap",
-    image: "/gsap.svg",
+    image: "/gsap.png",
   },
   {
     name: "threejs",
-    image: "/three.svg",
+    image: "/threejs.png",
   },
   {
     name: "figma",
-    image: "/figma.svg",
+    image: "/figma.png",
+  },
+    {
+    name: "framermotion",
+    image: "/framer.png",
   },
   {
-    name: "aws",
-    image: "/aws.svg",
+    name: "materialUI",
+    image: "/materialui.svg",
+  },
+  {
+    name: "GIT",
+    image: "/git.svg",
+  },
+  {
+    name: "mongoDB",
+    image: "/mongodb.svg",
+  },
+  {
+    name: "mongoose",
+    image: "/mongoose.png",
+  },
+  {
+    name: "nodejs",
+    image: "/nodejs.svg",
+  },
+  {
+    name: "postman",
+    image: "/postman.png",
+  },
+  {
+    name: "nextJS",
+    image: "/nextjs.svg",
   },
 ];
 
