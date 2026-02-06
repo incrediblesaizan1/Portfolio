@@ -13,18 +13,11 @@ const TechStack = () => {
             text="My Go-To Tools for Crafting Solutions"
           />
         </div>
-        <div className="md:mt-5 mt-2 relative">
-          <div className=" w-36 h-full absolute bottom-0 left-0 z-20"></div>
-          <div className=" w-36 h-full absolute bottom-0 right-0 z-20"></div>
-          <div className="marquee h-52">
-            <div className="marquee-box md:gap-12 gap-5">
-              {iconsList.map((icon, index) => (
-                <TechIcon key={index} icon={icon} />
-              ))}
-              {iconsList.map((icon, index) => (
-                <TechIcon key={index} icon={icon} />
-              ))}
-            </div>
+        <div className="md:mt-5 mt-8 flex justify-center items-center md:mx-10">
+          <div className="grid grid-cols-3 sm:grid-cols-4  md:grid-cols-6 lg:grid-cols-8 gap-4 justify-items-center w-full px-15 md:px-0">
+            {iconsList.map((icon, index) => (
+              <TechIcon key={index} icon={icon} />
+            ))}
           </div>
         </div>
       </div>
