@@ -26,7 +26,7 @@ const About = () => {
 
   return (
     <section
-      className="relative sm:px-10 section-spacing overflow-hidden my-20 sm:mb-50"
+      className="relative sm:px-10 section-spacing overflow-hidden my-20 sm:mb-40"
       id="about"
     >
       <TitleHeader

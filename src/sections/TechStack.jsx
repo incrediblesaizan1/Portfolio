@@ -25,7 +25,7 @@ const TechStack = () => {
         <div className="relative md:left-10 md:w-[95vw] md:left-2">
           <TitleHeader
             title="TECH STACK"
-            number="04"
+            number="05"
             text="My Go-To Tools for Crafting Solutions"
           />
         </div>

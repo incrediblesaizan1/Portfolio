@@ -24,7 +24,7 @@ const Testimonials = () => {
       <div className="w-full h-full md:-px-5 md:px-5">
         <TitleHeader
           title="TESTIMONIALS"
-          number="06"
+          number="07"
           text="Watch our clients are saying about us"
         />
 

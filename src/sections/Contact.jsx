@@ -80,7 +80,7 @@ const Contact = () => {
 
       <TitleHeader
         title="Contact"
-        number={"07"}
+        number={"08"}
         text={"Let’s create something users will love."}
       />
 

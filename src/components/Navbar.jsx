@@ -18,6 +18,10 @@ const pages = [
     href: "#about",
   },
   {
+    title: "Stats",
+    href: "#stats",
+  },
+  {
     title: "Projects",
     href: "#project",
   },
@@ -60,9 +64,9 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed bg-[#030813]/90 md:bg-transparent md:h-36 h-20 top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-0 md:pl-10 lg:pt-10 transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+      className={`fixed bg-[#030813]/90 md:bg-transparent md:h-36 h-20 top-0 left-0 w-full z-50 flex justify-between items-center px-4 sm:px-6 md:px-0 md:pl-10 lg:pt-10 transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
     >
-      <IoIosFlower className="my-6  h-14 md:w-16 text-6xl text-[#52ced6]" />
+      <IoIosFlower className="my-6 h-10 w-10 sm:h-14 sm:w-14 md:w-16 md:h-16 text-4xl sm:text-6xl text-[#52ced6]" />
 
       <button
         onClick={() => setisOpen(!isOpen)}
@@ -84,11 +88,11 @@ const Navbar = () => {
       <div className="bar grow hidden lg:block h-0.5 bg-white/70 transition-x-8 relative z-20"></div>
 
       <ul
-        className={` list-none bg-[#97979729] transition rounded-l-md backdrop-blur-xl fixed top-0 right-0 h-screen w-64 z-0 pt-28 pl-8 md:relative md:h-24 md:w-fit md:px-12 md:pt-0 md:translate-x-0 md:flex md:justify-center md:items-center md:gap-x-12 lg:min-w-[50vw] ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`list-none bg-[#97979729] transition rounded-l-md backdrop-blur-xl fixed top-0 right-0 h-screen w-64 z-0 pt-28 pl-8 md:relative md:h-24 md:w-fit md:px-4 lg:px-8 xl:px-12 md:pt-0 md:translate-x-0 md:flex md:justify-center md:items-center md:gap-x-3 lg:gap-x-6 xl:gap-x-10 lg:min-w-[50vw] ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         {pages.map((item, index) => (
           <Link
-            className="nav-text uppercase relative text-white md:h-full"
+            className="nav-text uppercase relative text-white md:h-full text-sm md:text-xs lg:text-sm"
             key={index}
             href={item.href}
             onClick={(e) => {
@@ -100,13 +104,12 @@ const Navbar = () => {
             }}
           >
             <li
-              className={`flex items-center mb-12 w-full transition border-r-2 border-transparent gap-x-3 [&:not(.active)]:hover:border-white/50 [&.active]:border-white
-                            md:mb-0 md:w-fit md:border-r-0 md:border-b-4 md:h-full ${
+              className={`flex items-center mb-8 md:mb-0 w-full transition border-r-2 border-transparent gap-x-3 [&:not(.active)]:hover:border-white/50 [&.active]:border-white
+                            md:w-fit md:border-r-0 md:border-b-4 md:h-full whitespace-nowrap ${
                               isActive(item.href) && "active"
                             }`}
             >
-              {/* <span className="block font-bold min-w-[20px]">0{index}</span> */}
-              <span className="block font-bold min-w-[20px]">{item.title}</span>
+              <span className="block font-bold">{item.title}</span>
               {isActive(item.href) && (
                 <motion.span
                   layoutId="underline"

@@ -10,11 +10,11 @@ const Approach = () => {
       <TitleHeader
         title="My Approach"
         text={"Before doing some awesome work, we do some awesome planning"}
-        number={"05"}
+        number={"06"}
       />
 
       <motion.div
-        className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4"
+        className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-8 lg:gap-10"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}

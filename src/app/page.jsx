@@ -10,6 +10,7 @@ import TechStack from "@/sections/TechStack";
 import Testimonials from "@/sections/Testimonials";
 import Contact from "@/sections/Contact";
 import Approach from "@/sections/Approach";
+import Stats from "@/sections/Stats";
 import Navbar from "@/components/Navbar";
 import Footer from "@/sections/Footer";
 
@@ -41,6 +42,7 @@ export default function Home() {
           <ScrollAnimation />
         </div>
         <About />
+        <Stats />
         <Projects />
         <Experiences />
         <TechStack />

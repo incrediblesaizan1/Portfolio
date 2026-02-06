@@ -33,11 +33,11 @@ const Projects = () => {
   const currentProject = myProjects[selectedProjectIndex];
 
   return (
-    <section className="relative sm:px-10 md:px-10 pt-10" id="project">
+    <section className="relative sm:px-10 md:px-10 pt-40" id="project">
       {/* head-text replaced */}
       <TitleHeader
         title="MY WORK"
-        number="02"
+        number="03"
         text="Crafting Real-World Solutions Through Code and Creativity"
       />
 
@@ -126,9 +126,18 @@ const Projects = () => {
           </div>
         </div>
 
-        <div className=" flex items-center rounded-lg h-96 md:h-full mt-[-95px] lg:mt-0">
-          <img src={currentProject.image} className="" alt="" />
-        </div>
+        <a
+          href={currentProject.href}
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center rounded-lg h-96 md:h-full mt-[-95px] lg:mt-0 cursor-pointer hover:scale-[1.02] transition-transform duration-300"
+        >
+          <img
+            src={currentProject.image}
+            className="w-full h-full object-contain"
+            alt={currentProject.title}
+          />
+        </a>
       </motion.div>
     </section>
   );
