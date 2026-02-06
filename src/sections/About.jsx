@@ -36,7 +36,6 @@ const About = () => {
         text="Passionate Creator, Lifelong Learner"
       />
 
-      {/* Decorative floating elements */}
       <div className="absolute top-1/4 right-10 w-3 h-3 bg-cyan-500 rounded-full animate-ping opacity-75"></div>
       <div
         className="absolute bottom-1/3 left-1/4 w-2 h-2 bg-pink-500 rounded-full animate-ping opacity-75"
@@ -51,7 +50,6 @@ const About = () => {
         style={{ animationDelay: "1.5s" }}
       ></div>
 
-      {/* Content */}
       <div className="relative z-10">
         <motion.div
           className="grid grid-cols-1 gap-6 md:grid-cols-6 md:auto-rows-[18rem] mt-12"
@@ -60,7 +58,6 @@ const About = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {/* Grid 1 */}
           <motion.div
             variants={itemVariants}
             className="col-span-1 md:col-span-3 lg:col-span-3 row-span-1 md:row-span-2 flex items-end bg-gradient-to-br from-gray-900 to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-gray-800 shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/20 transition-all duration-500 hover:scale-[1.02] grid-1 min-h-[20rem] md:min-h-full"
@@ -81,11 +78,9 @@ const About = () => {
             </div>
             <div className="absolute inset-x-0 pointer-events-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-black via-cyan-950/20 to-transparent" />
 
-            {/* Decorative corner element */}
             <div className="absolute -top-3 -right-3 w-12 h-12 border-2 border-cyan-500 rounded-full opacity-40"></div>
           </motion.div>
 
-          {/* Grid 2 */}
           <motion.div
             variants={itemVariants}
             className="col-span-1 md:col-span-3 lg:col-span-3 row-span-1 md:row-span-1 bg-gradient-to-br from-gray-900 to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-gray-800 shadow-lg shadow-pink-500/10 hover:shadow-pink-500/20 transition-all duration-500 hover:scale-[1.02] grid-2 min-h-[15rem] md:min-h-full"
@@ -124,26 +119,24 @@ const About = () => {
               />
               <Card
                 style={{ rotate: "30deg", top: "70%", left: "70%" }}
-                image="/logos/csharp-pink.png"
+                image="/csharp-pink.png"
                 containerRef={grid2Container}
               />
               <Card
                 style={{ rotate: "-45deg", top: "70%", left: "25%" }}
-                image="/logos/dotnet-pink.png"
+                image="/dotnet-pink.png"
                 containerRef={grid2Container}
               />
               <Card
                 style={{ rotate: "-45deg", top: "5%", left: "10%" }}
-                image="/logos/blazor-pink.png"
+                image="/blazor-pink.png"
                 containerRef={grid2Container}
               />
             </div>
 
-            {/* Glowing effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
           </motion.div>
 
-          {/* Grid 3 */}
           <motion.div
             variants={itemVariants}
             className="col-span-1 md:col-span-3 lg:col-span-3 row-span-1 md:row-span-1 bg-gradient-to-br from-black to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-cyan-500/30 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.02] grid-3 min-h-[15rem] md:min-h-full"
@@ -160,12 +153,10 @@ const About = () => {
               <Globe />
             </figure>
 
-            {/* Decorative elements */}
             <div className="absolute bottom-4 right-4 w-8 h-8 border-2 border-cyan-400 rounded-full opacity-30"></div>
             <div className="absolute top-1/2 right-10 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
           </motion.div>
 
-          {/* Grid 4 */}
           <motion.div
             variants={itemVariants}
             className="col-span-1 md:col-span-3 lg:col-span-2 row-span-1 md:row-span-1 bg-gradient-to-br from-cyan-950 to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-cyan-500/50 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/40 transition-all duration-500 hover:scale-[1.02] grid-4 group min-h-[15rem] md:min-h-full"
@@ -177,15 +168,12 @@ const About = () => {
               <CopyEmailButton />
             </div>
 
-            {/* Animated gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-pink-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-            {/* Corner decorations */}
             <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-cyan-400 opacity-50"></div>
             <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-cyan-400 opacity-50"></div>
           </motion.div>
 
-          {/* Grid 5 */}
           <motion.div
             variants={itemVariants}
             className="col-span-1 md:col-span-3 lg:col-span-4 row-span-1 md:row-span-1 bg-gradient-to-br from-gray-900 to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-gray-800 shadow-lg shadow-pink-500/10 hover:shadow-pink-500/20 transition-all duration-500 hover:scale-[1.02] grid-5 min-h-[15rem] md:min-h-full"
@@ -203,7 +191,6 @@ const About = () => {
               <Frameworks />
             </div>
 
-            {/* Decorative dots */}
             <div className="absolute top-6 right-6 w-2 h-2 bg-pink-400 rounded-full"></div>
             <div className="absolute bottom-8 left-8 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
           </motion.div>

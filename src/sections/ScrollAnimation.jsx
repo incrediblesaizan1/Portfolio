@@ -22,10 +22,8 @@ export default function ScrollyCanvas() {
     offset: ["start start", "end end"],
   });
 
-  // Opacity control: fade in canvas when scrolling starts
   const canvasOpacity = useTransform(scrollYProgress, [0, 0.05], [0, 1]);
 
-  // Preload images
   useEffect(() => {
     const loadImages = async () => {
       console.log("ScrollAnimation: Starting preload of sequence images...");
@@ -67,7 +65,6 @@ export default function ScrollyCanvas() {
     loadImages();
   }, []);
 
-  // Render frame based on scroll
   const renderFrame = (index) => {
     const canvas = canvasRef.current;
     if (!canvas || !images[index]) return;
@@ -75,7 +72,6 @@ export default function ScrollyCanvas() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Store index for resize handling
     lastFrameIndex.current = index;
 
     const img = images[index];
@@ -103,7 +99,6 @@ export default function ScrollyCanvas() {
     ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
   };
 
-  // Handle Resize & High DPI
   useEffect(() => {
     const handleResize = () => {
       const canvas = canvasRef.current;

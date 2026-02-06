@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-// CircularProgress component (inline)
 const CircularProgress = ({
   value,
   max = 100,
@@ -22,7 +21,6 @@ const CircularProgress = ({
   return (
     <div className="relative" style={{ width: size, height: size }}>
       <svg width={size} height={size} className="transform -rotate-90">
-        {/* Background circle */}
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -31,7 +29,6 @@ const CircularProgress = ({
           stroke={bgColor}
           strokeWidth={strokeWidth}
         />
-        {/* Progress circle */}
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -45,7 +42,6 @@ const CircularProgress = ({
           className="transition-all duration-1000 ease-out"
         />
       </svg>
-      {/* Center content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         {showGrade ? (
           <span className="text-2xl font-bold text-white">{label}</span>
@@ -129,13 +125,11 @@ const LeetCodeCard = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      {/* Header */}
       <div className="flex items-center gap-3 mb-6">
         <img src="/leetcode.png" alt="leetcode" className="w-8 h-8" />
         <h3 className="text-2xl font-bold text-cyan-400">LeetCode</h3>
       </div>
 
-      {/* Stats Row */}
       <div className="flex flex-col sm:flex-row items-center gap-4 mb-6">
         <CircularProgress
           value={stats.totalSolved}
@@ -170,7 +164,6 @@ const LeetCodeCard = () => {
         </div>
       </div>
 
-      {/* Difficulty Bars */}
       <DifficultyBar
         label="Easy"
         solved={stats.easy.solved}

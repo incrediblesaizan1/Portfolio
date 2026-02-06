@@ -96,13 +96,11 @@ export default function TerminalAnimation({ onAnimationComplete }) {
     }
 
     async function runTerminal() {
-      // Small initial delay
       await new Promise((r) => setTimeout(r, 100));
 
       if (!pathEl) return;
       await typeWriter("~/developer/workspace", pathEl, 10);
 
-      // Loop approx 700ms
       for (const cmd of commands) {
         await new Promise((r) => setTimeout(r, 40));
 
@@ -165,21 +163,17 @@ export default function TerminalAnimation({ onAnimationComplete }) {
         codeLineEl.classList.add("visible");
       }
 
-      // Read code: 900ms
       await new Promise((r) => setTimeout(r, 900));
 
       if (dusterEl) dusterEl.classList.add("active");
 
-      // Duster animation: 500ms
       await new Promise((r) => setTimeout(r, 500));
 
       if (mainContainer) mainContainer.classList.add("slide-up");
       if (landingPage) landingPage.classList.add("active");
 
-      // Slide up: 800ms
       await new Promise((r) => setTimeout(r, 800));
 
-      // Final pause before unmount: 600ms
       await new Promise((r) => setTimeout(r, 600));
 
       setIsAnimationComplete(true);

@@ -1,14 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap");
 @import "tailwindcss";
 
-/* ========================================
-   THEME CONFIGURATION
-   ======================================== */
 @theme {
-  /* Fonts */
   --font-sans: "Mona Sans", "Funnel Display", sans-serif;
 
-  /* Custom Colors */
   --color-primary: #030412;
   --color-midnight: #06091f;
   --color-navy: #161a31;
@@ -23,29 +18,23 @@
   --color-sand: #d6995c;
   --color-coral: #ea4884;
 
-  /* Grayscale Colors */
   --color-white-50: #d9ecff;
   --color-black-50: #1c1c21;
   --color-black-100: #0e0e10;
   --color-black-200: #282732;
   --color-black-300: #17151f;
 
-  /* Blue Shades */
   --color-blue-50: #839cb5;
   --color-blue-100: #2d2d38;
   --color-blue-300: #1c34ff;
 
-  /* Additional Colors */
   --color-pink-100: #ff28d5;
 
-  /* Gray Colors for Gradients */
   --color-gray-200: #e5e7eb;
   --color-gray-300: #d1d5db;
 
-  /* Animations */
   --animate-orbit: orbit 50s linear infinite;
 
-  /* Keyframe Animations */
   @keyframes orbit {
     0% {
       transform: rotate(calc(var(--angle) * 1deg))
@@ -59,9 +48,6 @@
   }
 }
 
-/* ========================================
-   BASE STYLES
-   ======================================== */
 :root {
   --gradient: radial-gradient(circle, #e5e5e5 0%, #fff 100%);
 }
@@ -77,9 +63,14 @@ body {
   overflow-x: hidden;
 }
 
-/* ========================================
-   TERMINAL ANIMATION STYLES
-   ======================================== */
+@media (max-width: 1024px) {
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+}
+
 #rain-canvas {
   position: absolute;
   top: 0;
@@ -463,9 +454,6 @@ body {
   top: 0;
 }
 
-/* ========================================
-   HERO TEXT SLIDER
-   ======================================== */
 .slide {
   display: inline-block;
   flex-direction: column;
@@ -505,9 +493,6 @@ body {
   }
 }
 
-/* ========================================
-   CARD WITH ANIMATED BORDER
-   ======================================== */
 .card {
   --start: 0;
   position: relative;
@@ -558,11 +543,7 @@ body {
   z-index: 0;
 }
 
-/* ========================================
-   TAILWIND LAYERS - UTILITIES
-   ======================================== */
 @layer utilities {
-  /* Gradient Text */
   .text-gray-gradient {
     background: linear-gradient(to right, #d1d5db, #e5e7eb, #e5e7eb);
     -webkit-background-clip: text;
@@ -581,7 +562,6 @@ body {
     -webkit-text-fill-color: transparent;
   }
 
-  /* Flex Utilities */
   .flex-center {
     @apply flex items-center justify-center;
   }
@@ -590,12 +570,10 @@ body {
     @apply flex flex-col justify-center items-center;
   }
 
-  /* Hover Animation */
   .hover-animation {
     @apply hover:-translate-y-1 transition duration-200;
   }
 
-  /* Blink Animation */
   @keyframes blink {
     0%,
     100% {
@@ -624,11 +602,7 @@ body {
   }
 }
 
-/* ========================================
-   TAILWIND LAYERS - COMPONENTS
-   ======================================== */
 @layer components {
-  /* ===== SPACING ===== */
   .c-space {
     @apply sm:px-10 px-5 lg:px-15;
   }
@@ -637,7 +611,6 @@ body {
     @apply min-h-screen mt-20 md:mt-24;
   }
 
-  /* ===== TYPOGRAPHY ===== */
   .text-heading {
     @apply font-bold text-3xl md:text-4xl;
   }
@@ -654,7 +627,6 @@ body {
     @apply sm:text-4xl text-3xl font-semibold;
   }
 
-  /* ===== GRIDS ===== */
   .grid-2-cols {
     @apply grid grid-cols-1 md:grid-cols-2 gap-6;
   }
@@ -663,7 +635,6 @@ body {
     @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6;
   }
 
-  /* ===== GRID BOXES (About Section) ===== */
   .grid-box {
     @apply h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 transition duration-200;
   }
@@ -700,7 +671,6 @@ body {
     @apply p-6 bg-gradient-to-tl from-zinc-800 via-zinc-900 to-zinc-800 rounded-2xl;
   }
 
-  /* ===== NAVIGATION ===== */
   .nav-ul {
     @apply flex flex-col items-center gap-4 sm:flex-row md:gap-6 relative z-20;
   }
@@ -713,12 +683,10 @@ body {
     @apply text-lg md:text-base hover:text-white transition-colors;
   }
 
-  /* ===== BUTTONS ===== */
   .btn {
     @apply relative px-4 py-3 text-sm text-center rounded-full font-light bg-indigo-600 text-white w-48 cursor-pointer overflow-hidden hover:bg-indigo-500 transition;
   }
 
-  /* ===== CARD & BORDERS ===== */
   .card-border {
     @apply border border-black-50 bg-black-100;
   }
@@ -743,7 +711,6 @@ body {
     mask-composite: exclude;
   }
 
-  /* ===== TECH STACK ===== */
   .tech-icon-shine {
     position: relative;
     overflow: hidden;
@@ -775,7 +742,6 @@ body {
     }
   }
 
-  /* ===== HERO ===== */
   .hero-layout {
     @apply relative z-10 xl:mt-20 mt-32 md:h-dvh h-[80vh] flex xl:items-center items-start justify-center;
   }
@@ -800,7 +766,6 @@ body {
     @apply xl:w-[70%] w-full h-full min-h-[50vh] absolute xl:-top-20 top-24 xl:-right-20 right-0;
   }
 
-  /* ===== CONTACT FORM ===== */
   .contact-container {
     @apply max-w-xl relative z-10 sm:px-10 px-5 mt-12;
   }
@@ -838,7 +803,6 @@ body {
     @apply inline-block;
   }
 
-  /* ===== SIDEBAR ===== */
   .side-bar-bg {
     border-bottom: 1px solid rgba(255, 255, 255, 0.01);
     background: rgba(23, 21, 31, 0.7);
@@ -857,7 +821,6 @@ body {
     margin-top: 20px;
     margin-bottom: 15px;
     margin-right: 2px;
-
   }
 
   .custom-scrollbar2::-webkit-scrollbar-thumb {
@@ -865,8 +828,7 @@ body {
     width: 5px;
     border-radius: 10px;
     height: 1px;
-    cursor:grab;
-
+    cursor: grab;
   }
 
   .custom-scrollbar2-dark::-webkit-scrollbar-thumb {

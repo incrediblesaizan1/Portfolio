@@ -51,7 +51,7 @@ export async function GET() {
         query,
         variables: { username: LEETCODE_USERNAME },
       }),
-      next: { revalidate: 3600 }, // Cache for 1 hour
+      next: { revalidate: 3600 },
     });
 
     const data = await response.json();
@@ -67,13 +67,11 @@ export async function GET() {
     const user = data.data.matchedUser;
     const allQuestions = data.data.allQuestionsCount;
 
-    // Get total questions by difficulty
     const totalByDifficulty = {};
     allQuestions.forEach((q) => {
       totalByDifficulty[q.difficulty] = q.count;
     });
 
-    // Get solved by difficulty
     const solvedByDifficulty = {};
     user.submitStats.acSubmissionNum.forEach((s) => {
       solvedByDifficulty[s.difficulty] = s.count;
@@ -88,7 +86,6 @@ export async function GET() {
     const mediumTotal = totalByDifficulty["Medium"] || 1;
     const hardTotal = totalByDifficulty["Hard"] || 1;
 
-    // Calculate beat percentages (approximation based on solved ratio)
     const easyBeat = Math.min(99, Math.round((easySolved / easyTotal) * 100 + 50));
     const mediumBeat = Math.min(99, Math.round((mediumSolved / mediumTotal) * 100 + 40));
     const hardBeat = Math.min(99, Math.round((hardSolved / hardTotal) * 100 + 30));

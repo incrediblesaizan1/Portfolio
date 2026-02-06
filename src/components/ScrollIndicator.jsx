@@ -43,17 +43,15 @@ const ScrollIndicator = () => {
     <div
       className={clsx(
         "fixed z-10 top-4/5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-5 transition-opacity duration-500",
-        isScrolling ? "opacity-0" : "opacity-100"
+        isScrolling ? "opacity-0" : "opacity-100",
       )}
     >
       <div className="relative w-10 h-16">
-        {/* Lines */}
         <div className="flex justify-between opacity-50">
           <div className="w-px h-16 bg-white" />
           <div className="w-px h-16 bg-white" />
         </div>
 
-        {/* Animated Circle */}
         <div
           ref={circleRef}
           className="absolute top-0 left-1/2 -translate-x-1/2 size-4 border border-white rounded-full"

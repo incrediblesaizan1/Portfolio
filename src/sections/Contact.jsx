@@ -92,17 +92,15 @@ const Contact = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        {/* Desktop Image */}
         <img
           src="/terminal.png"
           alt="terminal-bg"
-          className="absolute inset-0 h-full mt-14  mx-auto hidden sm:block" // Hidden on small screens, shown on md+
+          className="absolute inset-0 h-full mt-14  mx-auto hidden sm:block"
         />
-        {/* Mobile Image */}
         <img
           src="/terminalphone.png"
           alt="terminal-bg"
-          className="absolute inset-0 h-full mt-14 block sm:hidden" // Shown on small screens, hidden on md+
+          className="absolute inset-0 h-full mt-14 block sm:hidden"
         />
 
         <div className="contact-container mt-22">
@@ -117,7 +115,6 @@ const Contact = () => {
             onSubmit={handleSubmit}
             className="mt-12 flex flex-col space-y-7"
           >
-            {/* FormSubmit Hidden Settings */}
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
 

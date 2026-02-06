@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-// Get color based on contribution count
 const getContributionColor = (count) => {
   if (count === 0) return "#161b22";
   if (count <= 2) return "#0e4429";
@@ -11,7 +10,6 @@ const getContributionColor = (count) => {
   return "#39d353";
 };
 
-// Get month labels for the chart
 const getMonthLabels = (weeks) => {
   const months = [];
   const monthNames = [
@@ -34,7 +32,6 @@ const getMonthLabels = (weeks) => {
       const date = new Date(week.days[0].date);
       const monthIndex = date.getMonth();
 
-      // Add month label at the start of each month
       if (
         months.length === 0 ||
         months[months.length - 1].month !== monthIndex
@@ -51,7 +48,6 @@ const getMonthLabels = (weeks) => {
   return months;
 };
 
-// CircularProgress component (inline)
 const CircularProgress = ({
   value,
   max = 100,
@@ -71,7 +67,6 @@ const CircularProgress = ({
   return (
     <div className="relative" style={{ width: size, height: size }}>
       <svg width={size} height={size} className="transform -rotate-90">
-        {/* Background circle */}
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -80,7 +75,6 @@ const CircularProgress = ({
           stroke={bgColor}
           strokeWidth={strokeWidth}
         />
-        {/* Progress circle */}
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -94,7 +88,6 @@ const CircularProgress = ({
           className="transition-all duration-1000 ease-out"
         />
       </svg>
-      {/* Center content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         {showGrade ? (
           <span className="text-2xl font-bold text-white">{label}</span>
@@ -165,7 +158,6 @@ const GithubCard = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
           <img src="/github.png" alt="GitHub" className="w-8 h-8" />
@@ -182,7 +174,6 @@ const GithubCard = () => {
         />
       </div>
 
-      {/* Total Commits Header */}
       <div className="flex items-center justify-between text-gray-300 mb-2">
         <div className="flex items-center gap-2">
           <span>📝</span>
@@ -191,14 +182,11 @@ const GithubCard = () => {
         <span className="font-bold text-white">{stats.totalCommits}</span>
       </div>
 
-      {/* Total Contributions */}
       <div className="text-gray-400 mb-4 text-sm">
         {stats.totalContributions || 0} contributions in the last year
       </div>
 
-      {/* Contribution Activity Chart */}
       <div className="mb-6">
-        {/* Month Labels */}
         <div className="flex text-xs text-gray-500 mb-1 ml-6 overflow-hidden">
           {monthLabels
             .filter((_, i) => i % 2 === 0)
@@ -209,9 +197,7 @@ const GithubCard = () => {
             ))}
         </div>
 
-        {/* Activity Grid */}
         <div className="flex gap-px overflow-hidden">
-          {/* Day Labels - hidden on mobile */}
           <div className="hidden sm:flex flex-col text-xs text-gray-500 mr-1 justify-around shrink-0 py-1">
             <span className="text-[10px]">Sun</span>
             <span className="text-[10px]">Mon</span>
@@ -220,7 +206,6 @@ const GithubCard = () => {
             <span className="text-[10px]">Sat</span>
           </div>
 
-          {/* Contribution Grid - responsive sizing */}
           <div className="flex gap-px flex-1 overflow-hidden">
             {contributionData.map((week, weekIndex) => (
               <div
@@ -242,7 +227,6 @@ const GithubCard = () => {
           </div>
         </div>
 
-        {/* Legend */}
         <div className="flex items-center justify-end gap-1 mt-2 text-xs text-gray-500">
           <span>Less</span>
           <div
@@ -269,7 +253,6 @@ const GithubCard = () => {
         </div>
       </div>
 
-      {/* Language Bar */}
       {stats.languages && stats.languages.length > 0 && (
         <>
           <div className="h-2 rounded-full overflow-hidden flex mb-3">

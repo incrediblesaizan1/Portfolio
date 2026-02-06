@@ -49,16 +49,13 @@ const Navbar = () => {
   const [currentHash, setCurrentHash] = useState("");
   const path = usePathname();
 
-  // Check if a nav item is active
   const isActive = useCallback(
     (href) => {
-      // For home page
       if (href === "/") {
         return path === "/" && currentHash === "";
       }
-      // For hash links like /#about
       if (href.startsWith("/#")) {
-        const hash = href.substring(1); // Get #about from /#about
+        const hash = href.substring(1);
         return path === "/" && currentHash === hash;
       }
       return path === href;
@@ -66,20 +63,16 @@ const Navbar = () => {
     [path, currentHash],
   );
 
-  // Use ref to avoid stale closure in scroll handler
   const currentHashRef = React.useRef(currentHash);
   currentHashRef.current = currentHash;
 
   useEffect(() => {
-    // Set initial hash
     setCurrentHash(window.location.hash);
 
-    // Listen for hash changes
     const handleHashChange = () => {
       setCurrentHash(window.location.hash);
     };
 
-    // Listen for scroll to update active section
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsVisible(true);
@@ -87,10 +80,9 @@ const Navbar = () => {
         setIsVisible(false);
       }
 
-      // Update hash based on visible section
       const sections = pages
         .filter((p) => p.href.startsWith("/#"))
-        .map((p) => p.href.substring(2)); // Get section IDs
+        .map((p) => p.href.substring(2));
 
       for (const sectionId of sections.reverse()) {
         const element = document.getElementById(sectionId);
@@ -100,7 +92,6 @@ const Navbar = () => {
             const newHash = `#${sectionId}`;
             if (currentHashRef.current !== newHash) {
               setCurrentHash(newHash);
-              // Update URL without triggering scroll
               window.history.replaceState(null, "", `/${newHash}`);
             }
             return;
@@ -108,7 +99,6 @@ const Navbar = () => {
         }
       }
 
-      // At the top of the page
       if (window.scrollY < 100) {
         if (currentHashRef.current !== "") {
           setCurrentHash("");

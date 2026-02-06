@@ -54,7 +54,6 @@ query($username: String!) {
 `;
 
 function calculateGrade(stats) {
-  // Simple grading algorithm based on stats
   const score =
     stats.totalStars * 2 +
     stats.totalCommits * 0.5 +
@@ -91,7 +90,7 @@ export async function GET() {
         query,
         variables: { username: GITHUB_USERNAME },
       }),
-      next: { revalidate: 3600 }, // Cache for 1 hour
+      next: { revalidate: 3600 },
     });
 
     const data = await response.json();
@@ -106,13 +105,11 @@ export async function GET() {
 
     const user = data.data.user;
 
-    // Calculate total stars
     const totalStars = user.repositories.nodes.reduce(
       (acc, repo) => acc + repo.stargazerCount,
       0
     );
 
-    // Calculate language stats
     const languageMap = {};
     user.repositories.nodes.forEach((repo) => {
       repo.languages.edges.forEach((edge) => {
@@ -139,11 +136,9 @@ export async function GET() {
       .sort((a, b) => parseFloat(b.percentage) - parseFloat(a.percentage))
       .slice(0, 4);
 
-    // Get contribution calendar data
     const contributionCalendar = user.contributionsCollection.contributionCalendar;
     const totalContributions = contributionCalendar.totalContributions;
     
-    // Get the last 52 weeks of contributions
     const weeks = contributionCalendar.weeks.slice(-52);
     const contributionData = weeks.map(week => ({
       days: week.contributionDays.map(day => ({

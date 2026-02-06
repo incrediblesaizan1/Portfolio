@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const Alert = ({ isOpen, onClose, type = "success", title, message }) => {
   const modalRef = useRef(null);
 
-  // Close on Escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") onClose();
@@ -15,7 +14,6 @@ const Alert = ({ isOpen, onClose, type = "success", title, message }) => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
 
-  // Click outside to close
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -42,13 +40,11 @@ const Alert = ({ isOpen, onClose, type = "success", title, message }) => {
             className="relative w-full max-w-sm overflow-hidden rounded-2xl bg-[#0E0E10] border border-white/10 shadow-2xl p-6"
             ref={modalRef}
           >
-            {/* Background Glow */}
             <div
               className={`absolute -top-10 -right-10 w-32 h-32 rounded-full blur-[60px] opacity-20 ${isSuccess ? "bg-blue-900" : "bg-red-500"}`}
             />
 
             <div className="relative z-10 flex flex-col items-center text-center">
-              {/* Icon */}
               <div
                 className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full border ${isSuccess ? "border-blue-500/20 bg-blue-500/10 text-blue-500" : "border-red-500/20 bg-red-500/10 text-red-400"}`}
               >

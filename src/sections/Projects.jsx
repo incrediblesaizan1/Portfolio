@@ -34,7 +34,6 @@ const Projects = () => {
 
   return (
     <section className="relative sm:px-10 md:px-10 pt-40" id="project">
-      {/* head-text replaced */}
       <TitleHeader
         title="MY WORK"
         number="03"
@@ -81,7 +80,6 @@ const Projects = () => {
             <div className="flex items-center justify-between flex-wrap gap-5">
               <div className="flex items-center gap-3">
                 {currentProject.tags.map((tag, index) => (
-                  /* tech-logo replaced */
                   <div
                     key={index}
                     className="w-10 h-10 rounded-md p-2 bg-neutral-100 bg-opacity-10 backdrop-filter backdrop-blur-lg flex justify-center items-center"
@@ -103,7 +101,6 @@ const Projects = () => {
             </div>
 
             <div className="flex justify-between items-center mt-7">
-              {/* arrow-btn replaced */}
               <button
                 className="w-10 h-10 p-3 cursor-pointer active:scale-95 transition-all rounded-full arrow-gradient"
                 onClick={() => handleNavigation("previous")}
@@ -111,7 +108,6 @@ const Projects = () => {
                 <img src="/left-arrow.png" alt="left arrow" />
               </button>
 
-              {/* arrow-btn replaced */}
               <button
                 className="w-10 h-10 p-3 cursor-pointer active:scale-95 transition-all rounded-full arrow-gradient"
                 onClick={() => handleNavigation("next")}
