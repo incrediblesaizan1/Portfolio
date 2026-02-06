@@ -1,3 +1,4 @@
+"use client";
 import { useState, useRef } from "react";
 import TitleHeader from "@/components/TitleHeader.jsx";
 import Alert from "../components/Alert";
@@ -95,13 +96,13 @@ const Contact = () => {
         <img
           src="/terminal.png"
           alt="terminal-bg"
-          className="absolute inset-0 md:h-[95vh] lg:h-[130vh] mx-auto hidden md:block" // Hidden on small screens, shown on md+
+          className="absolute inset-0 h-full mt-14  mx-auto hidden sm:block" // Hidden on small screens, shown on md+
         />
         {/* Mobile Image */}
         <img
           src="/terminalphone.png"
           alt="terminal-bg"
-          className="absolute inset-0 h-[130vh] block md:hidden" // Shown on small screens, hidden on md+
+          className="absolute inset-0 h-full mt-14 block sm:hidden" // Shown on small screens, hidden on md+
         />
 
         <div className="contact-container mt-22">

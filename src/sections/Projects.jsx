@@ -130,7 +130,7 @@ const Projects = () => {
           href={currentProject.href}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center rounded-lg h-96 md:h-full mt-[-95px] lg:mt-0 cursor-pointer hover:scale-[1.02] transition-transform duration-300"
+          className="flex items-center rounded-lg h-96 md:h-full mt-[-75px] sm:mt-0 cursor-pointer hover:scale-[1.02] transition-transform duration-300"
         >
           <img
             src={currentProject.image}

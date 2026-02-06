@@ -15,51 +15,115 @@ const pages = [
   },
   {
     title: "About",
-    href: "#about",
+    href: "/#about",
   },
   {
     title: "Stats",
-    href: "#stats",
+    href: "/#stats",
   },
   {
     title: "Projects",
-    href: "#project",
+    href: "/#project",
   },
   {
     title: "Experience",
-    href: "#work",
+    href: "/#work",
   },
   {
     title: "Tech Stack",
-    href: "#techstack",
+    href: "/#techstack",
   },
   {
     title: "Testimonials",
-    href: "#testimonials",
+    href: "/#testimonials",
   },
   {
     title: "Contact",
-    href: "#contact",
+    href: "/#contact",
   },
 ];
 
 const Navbar = () => {
   const [isOpen, setisOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [currentHash, setCurrentHash] = useState("");
   const path = usePathname();
-  const isActive = useCallback((href) => path == href, [path]);
+
+  // Check if a nav item is active
+  const isActive = useCallback(
+    (href) => {
+      // For home page
+      if (href === "/") {
+        return path === "/" && currentHash === "";
+      }
+      // For hash links like /#about
+      if (href.startsWith("/#")) {
+        const hash = href.substring(1); // Get #about from /#about
+        return path === "/" && currentHash === hash;
+      }
+      return path === href;
+    },
+    [path, currentHash],
+  );
+
+  // Use ref to avoid stale closure in scroll handler
+  const currentHashRef = React.useRef(currentHash);
+  currentHashRef.current = currentHash;
 
   useEffect(() => {
+    // Set initial hash
+    setCurrentHash(window.location.hash);
+
+    // Listen for hash changes
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+    };
+
+    // Listen for scroll to update active section
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
+
+      // Update hash based on visible section
+      const sections = pages
+        .filter((p) => p.href.startsWith("/#"))
+        .map((p) => p.href.substring(2)); // Get section IDs
+
+      for (const sectionId of sections.reverse()) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            const newHash = `#${sectionId}`;
+            if (currentHashRef.current !== newHash) {
+              setCurrentHash(newHash);
+              // Update URL without triggering scroll
+              window.history.replaceState(null, "", `/${newHash}`);
+            }
+            return;
+          }
+        }
+      }
+
+      // At the top of the page
+      if (window.scrollY < 100) {
+        if (currentHashRef.current !== "") {
+          setCurrentHash("");
+          window.history.replaceState(null, "", "/");
+        }
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("hashchange", handleHashChange);
+    };
   }, []);
 
   return (

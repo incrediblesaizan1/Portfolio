@@ -1,3 +1,4 @@
+"use client";
 import TechIcon from "@/components/TechIcon";
 import TitleHeader from "@/components/TitleHeader";
 import { iconsList } from "@/data/index";
@@ -22,7 +23,7 @@ const TechStack = () => {
   return (
     <section id="techstack" className="overflow-hidden md:mt-50">
       <div className="mt-5 ">
-        <div className="relative md:left-10 md:w-[95vw] md:left-2">
+        <div className="relative md:w-[95vw] md:left-2">
           <TitleHeader
             title="TECH STACK"
             number="05"

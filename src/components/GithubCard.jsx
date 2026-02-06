@@ -210,9 +210,9 @@ const GithubCard = () => {
         </div>
 
         {/* Activity Grid */}
-        <div className="flex gap-px">
-          {/* Day Labels */}
-          <div className="flex flex-col text-xs text-gray-500 mr-1 justify-around shrink-0 py-1">
+        <div className="flex gap-px overflow-hidden">
+          {/* Day Labels - hidden on mobile */}
+          <div className="hidden sm:flex flex-col text-xs text-gray-500 mr-1 justify-around shrink-0 py-1">
             <span className="text-[10px]">Sun</span>
             <span className="text-[10px]">Mon</span>
             <span className="text-[10px]">Wed</span>
@@ -221,17 +221,18 @@ const GithubCard = () => {
           </div>
 
           {/* Contribution Grid - responsive sizing */}
-          <div className="flex gap-px flex-1">
+          <div className="flex gap-px flex-1 overflow-hidden">
             {contributionData.map((week, weekIndex) => (
-              <div key={weekIndex} className="flex flex-col gap-px flex-1">
+              <div
+                key={weekIndex}
+                className="flex flex-col gap-px flex-1 min-w-0"
+              >
                 {week.days.map((day, dayIndex) => (
                   <div
                     key={dayIndex}
                     className="aspect-square rounded-[2px] transition-colors duration-200 hover:ring-1 hover:ring-gray-400"
                     style={{
                       backgroundColor: getContributionColor(day.count),
-                      minWidth: "4px",
-                      maxWidth: "12px",
                     }}
                     title={`${day.count} contributions on ${day.date}`}
                   />

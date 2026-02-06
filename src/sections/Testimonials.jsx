@@ -1,3 +1,4 @@
+"use client";
 import { testimonials } from "@/data/index";
 import TitleHeader from "../components/TitleHeader";
 import GlowCard from "../components/GlowCard";
