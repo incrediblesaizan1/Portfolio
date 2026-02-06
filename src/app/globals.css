@@ -845,3 +845,32 @@ body {
     backdrop-filter: blur(10px);
   }
 }
+
+@layer components {
+  .custom-scrollbar2::-webkit-scrollbar {
+    width: 4px;
+    height: 1px;
+  }
+
+  .custom-scrollbar2::-webkit-scrollbar-track {
+    background: transparent;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-right: 2px;
+
+  }
+
+  .custom-scrollbar2::-webkit-scrollbar-thumb {
+    background-color: #05b6d3;
+    width: 5px;
+    border-radius: 10px;
+    height: 1px;
+    cursor:grab;
+
+  }
+
+  .custom-scrollbar2-dark::-webkit-scrollbar-thumb {
+    background-color: #131314;
+    cursor: pointer;
+  }
+}
