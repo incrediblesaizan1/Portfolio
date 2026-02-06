@@ -1,5 +1,6 @@
 "use client";
 import gsap from "gsap";
+import { motion } from "framer-motion";
 import { useGSAP } from "@gsap/react";
 import { useState } from "react";
 
@@ -40,7 +41,13 @@ const Projects = () => {
         text="Crafting Real-World Solutions Through Code and Creativity"
       />
 
-      <div className="grid lg:grid-cols-2 grid-cols-1 mt-8 gap-y-0 lg:gap-5 w-full">
+      <motion.div
+        className="grid lg:grid-cols-2 grid-cols-1 mt-8 gap-y-0 lg:gap-5 w-full"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 pb-0 sm:pb-10 shadow-2xl shadow-black-200">
           <div className="absolute top-0 right-0">
             <img
@@ -122,7 +129,7 @@ const Projects = () => {
         <div className=" flex items-center rounded-lg h-96 md:h-full mt-[-95px] lg:mt-0">
           <img src={currentProject.image} className="" alt="" />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

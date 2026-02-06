@@ -1,17 +1,28 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import Card from "../components/Card";
 import { Globe } from "../components/globe";
 import CopyEmailButton from "../components/CopyEmailButton";
 import { Frameworks } from "../components/Frameworks";
 import TitleHeader from "../components/TitleHeader";
+import { motion } from "framer-motion";
 
 const About = () => {
   const grid2Container = useRef();
-  const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
 
   return (
     <section
@@ -41,10 +52,17 @@ const About = () => {
 
       {/* Content */}
       <div className="relative z-10">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
+        <motion.div
+          className="grid grid-cols-1 gap-6 md:grid-cols-6 md:auto-rows-[18rem] mt-12"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {/* Grid 1 */}
-          <div
-            className={`col-span-1 md:col-span-3 lg:col-span-3 row-span-1 md:row-span-2 flex items-end bg-gradient-to-br from-gray-900 to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-gray-800 shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/20 transition-all duration-500 hover:scale-[1.02] grid-1 ${isVisible ? "animate-fadeInUp" : "opacity-0"} min-h-[20rem] md:min-h-full`}
+          <motion.div
+            variants={itemVariants}
+            className="col-span-1 md:col-span-3 lg:col-span-3 row-span-1 md:row-span-2 flex items-end bg-gradient-to-br from-gray-900 to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-gray-800 shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/20 transition-all duration-500 hover:scale-[1.02] grid-1 min-h-[20rem] md:min-h-full"
           >
             <img
               src="/coding-pov.png"
@@ -56,20 +74,20 @@ const About = () => {
                 Hi, I'm Saizan Khan
               </p>
               <p className="subtext text-gray-400 text-lg leading-relaxed">
-                Over the years, I developed my frontend and backend dev
-                skills to deliver dynamic and software and web applications.
+                Over the years, I developed my frontend and backend dev skills
+                to deliver dynamic and software and web applications.
               </p>
             </div>
             <div className="absolute inset-x-0 pointer-events-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-black via-cyan-950/20 to-transparent" />
 
             {/* Decorative corner element */}
             <div className="absolute -top-3 -right-3 w-12 h-12 border-2 border-cyan-500 rounded-full opacity-40"></div>
-          </div>
+          </motion.div>
 
           {/* Grid 2 */}
-          <div
-            className={`col-span-1 md:col-span-3 lg:col-span-3 row-span-1 md:row-span-1 bg-gradient-to-br from-gray-900 to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-gray-800 shadow-lg shadow-pink-500/10 hover:shadow-pink-500/20 transition-all duration-500 hover:scale-[1.02] grid-2 ${isVisible ? "animate-fadeInUp" : "opacity-0"} min-h-[15rem] md:min-h-full`}
-            style={{ animationDelay: "0.1s" }}
+          <motion.div
+            variants={itemVariants}
+            className="col-span-1 md:col-span-3 lg:col-span-3 row-span-1 md:row-span-1 bg-gradient-to-br from-gray-900 to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-gray-800 shadow-lg shadow-pink-500/10 hover:shadow-pink-500/20 transition-all duration-500 hover:scale-[1.02] grid-2 min-h-[15rem] md:min-h-full"
           >
             <div
               ref={grid2Container}
@@ -122,12 +140,12 @@ const About = () => {
 
             {/* Glowing effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-          </div>
+          </motion.div>
 
           {/* Grid 3 */}
-          <div
-            className={`col-span-1 md:col-span-3 lg:col-span-3 row-span-1 md:row-span-1 bg-gradient-to-br from-black to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-cyan-500/30 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.02] grid-3 ${isVisible ? "animate-fadeInUp" : "opacity-0"} min-h-[15rem] md:min-h-full`}
-            style={{ animationDelay: "0.2s" }}
+          <motion.div
+            variants={itemVariants}
+            className="col-span-1 md:col-span-3 lg:col-span-3 row-span-1 md:row-span-1 bg-gradient-to-br from-black to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-cyan-500/30 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.02] grid-3 min-h-[15rem] md:min-h-full"
           >
             <div className="z-10 w-full md:w-[60%] lg:w-[50%]">
               <p className="headtext text-white font-bold text-3xl mb-2">
@@ -144,12 +162,12 @@ const About = () => {
             {/* Decorative elements */}
             <div className="absolute bottom-4 right-4 w-8 h-8 border-2 border-cyan-400 rounded-full opacity-30"></div>
             <div className="absolute top-1/2 right-10 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-          </div>
+          </motion.div>
 
           {/* Grid 4 */}
-          <div
-            className={`col-span-1 md:col-span-3 lg:col-span-2 row-span-1 md:row-span-1 bg-gradient-to-br from-cyan-950 to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-cyan-500/50 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/40 transition-all duration-500 hover:scale-[1.02] grid-4 group ${isVisible ? "animate-fadeInUp" : "opacity-0"} min-h-[15rem] md:min-h-full`}
-            style={{ animationDelay: "0.3s" }}
+          <motion.div
+            variants={itemVariants}
+            className="col-span-1 md:col-span-3 lg:col-span-2 row-span-1 md:row-span-1 bg-gradient-to-br from-cyan-950 to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-cyan-500/50 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/40 transition-all duration-500 hover:scale-[1.02] grid-4 group min-h-[15rem] md:min-h-full"
           >
             <div className="flex flex-col items-center justify-center gap-4 size-full relative z-10">
               <p className="text-center headtext text-white font-bold text-3xl px-4">
@@ -164,12 +182,12 @@ const About = () => {
             {/* Corner decorations */}
             <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-cyan-400 opacity-50"></div>
             <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-cyan-400 opacity-50"></div>
-          </div>
+          </motion.div>
 
           {/* Grid 5 */}
-          <div
-            className={`col-span-1 md:col-span-3 lg:col-span-4 row-span-1 md:row-span-1 bg-gradient-to-br from-gray-900 to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-gray-800 shadow-lg shadow-pink-500/10 hover:shadow-pink-500/20 transition-all duration-500 hover:scale-[1.02] grid-5 ${isVisible ? "animate-fadeInUp" : "opacity-0"} min-h-[15rem] md:min-h-full`}
-            style={{ animationDelay: "0.4s" }}
+          <motion.div
+            variants={itemVariants}
+            className="col-span-1 md:col-span-3 lg:col-span-4 row-span-1 md:row-span-1 bg-gradient-to-br from-gray-900 to-gray-950 rounded-2xl p-6 relative overflow-hidden border border-gray-800 shadow-lg shadow-pink-500/10 hover:shadow-pink-500/20 transition-all duration-500 hover:scale-[1.02] grid-5 min-h-[15rem] md:min-h-full"
           >
             <div className="z-10 w-full md:w-[50%] lg:w-full">
               <p className="headText text-white font-bold text-3xl mb-2">
@@ -187,8 +205,8 @@ const About = () => {
             {/* Decorative dots */}
             <div className="absolute top-6 right-6 w-2 h-2 bg-pink-400 rounded-full"></div>
             <div className="absolute bottom-8 left-8 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

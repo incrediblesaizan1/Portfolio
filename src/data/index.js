@@ -397,7 +397,7 @@ export const mySocials = [
   {
     name: "Github",
     href: "https://github.com/incrediblesaizan1",
-    icon: "/github.svg",
+    icon: "/github.png",
   },
   {
     name: "Instagram",

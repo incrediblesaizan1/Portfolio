@@ -26,9 +26,13 @@ export const Timeline = ({ data }) => {
     <div className="c-space" ref={containerRef}>
       <div ref={ref} className="relative pb-20">
         {data.map((item, index) => (
-          <div
+          <motion.div
             key={index}
             className="flex justify-start pt-10 md:pt-40 md:gap-10"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <div className="sticky z-40 flex flex-col items-center self-start max-w-xs md:flex-row top-40 lg:max-w-sm md:w-full">
               <div className="absolute flex items-center justify-center w-10 h-10 rounded-full -left-[15px] bg-midnight">
@@ -52,7 +56,7 @@ export const Timeline = ({ data }) => {
                 </p>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
         <div
           style={{

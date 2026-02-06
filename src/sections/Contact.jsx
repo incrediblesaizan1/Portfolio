@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import TitleHeader from "@/components/TitleHeader.jsx";
 import Alert from "../components/Alert";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const formRef = useRef();
@@ -83,7 +84,13 @@ const Contact = () => {
         text={"Let’s create something users will love."}
       />
 
-      <div className="relative flex items-center justify-center flex-col">
+      <motion.div
+        className="relative flex items-center justify-center flex-col"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         {/* Desktop Image */}
         <img
           src="/terminal.png"
@@ -166,7 +173,7 @@ const Contact = () => {
             </button>
           </form>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

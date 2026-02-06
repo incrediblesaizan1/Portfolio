@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "../components/CanvasRevealEffect";
@@ -7,48 +7,87 @@ import TitleHeader from "@/components/TitleHeader";
 const Approach = () => {
   return (
     <section className="hidden md:block mt-50 mx-10">
-     <TitleHeader title="My Approach" text={"Before doing some awesome work, we do some awesome planning"} number={"05"} />
+      <TitleHeader
+        title="My Approach"
+        text={"Before doing some awesome work, we do some awesome planning"}
+        number={"05"}
+      />
 
-      <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
-        <Card
-          title="Planning & Strategy"
-          icon={<AceternityIcon order="Phase 1" />}
-          des="We'll collaborate to map out your website's goals, target audience, and key functionalities. We'll discuss things like site structure, navigation, and content requirements."
+      <motion.div
+        className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={{
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.2,
+            },
+          },
+        }}
+      >
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            show: { opacity: 1, y: 0 },
+          }}
         >
-          <CanvasRevealEffect
-            animationSpeed={5.1}
-            containerClassName="bg-emerald-900 rounded-3xl overflow-hidden"
-          />
-        </Card>
+          <Card
+            title="Planning & Strategy"
+            icon={<AceternityIcon order="Phase 1" />}
+            des="We'll collaborate to map out your website's goals, target audience, and key functionalities. We'll discuss things like site structure, navigation, and content requirements."
+          >
+            <CanvasRevealEffect
+              animationSpeed={5.1}
+              containerClassName="bg-emerald-900 rounded-3xl overflow-hidden"
+            />
+          </Card>
+        </motion.div>
 
-        <Card
-          title="Development & Progress Update"
-          icon={<AceternityIcon order="Phase 2" />}
-          des="Once we agree on the plan, I cue my lofi playlist and dive into coding. From initial sketches to polished code, I keep you updated every step of the way."
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            show: { opacity: 1, y: 0 },
+          }}
         >
-          <CanvasRevealEffect
-            animationSpeed={3}
-            containerClassName="bg-pink-900 rounded-3xl overflow-hidden"
-            colors={[
-              [255, 166, 158],
-              [221, 255, 247],
-            ]}
-            dotSize={2}
-          />
-        </Card>
+          <Card
+            title="Development & Progress Update"
+            icon={<AceternityIcon order="Phase 2" />}
+            des="Once we agree on the plan, I cue my lofi playlist and dive into coding. From initial sketches to polished code, I keep you updated every step of the way."
+          >
+            <CanvasRevealEffect
+              animationSpeed={3}
+              containerClassName="bg-pink-900 rounded-3xl overflow-hidden"
+              colors={[
+                [255, 166, 158],
+                [221, 255, 247],
+              ]}
+              dotSize={2}
+            />
+          </Card>
+        </motion.div>
 
-        <Card
-          title="Development & Launch"
-          icon={<AceternityIcon order="Phase 3" />}
-          des="This is where the magic happens! Based on the approved design, I'll translate everything into functional code, building your website from the ground up."
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            show: { opacity: 1, y: 0 },
+          }}
         >
-          <CanvasRevealEffect
-            animationSpeed={3}
-            containerClassName="bg-sky-600 rounded-3xl overflow-hidden"
-            colors={[[125, 211, 252]]}
-          />
-        </Card>
-      </div>
+          <Card
+            title="Development & Launch"
+            icon={<AceternityIcon order="Phase 3" />}
+            des="This is where the magic happens! Based on the approved design, I'll translate everything into functional code, building your website from the ground up."
+          >
+            <CanvasRevealEffect
+              animationSpeed={3}
+              containerClassName="bg-sky-600 rounded-3xl overflow-hidden"
+              colors={[[125, 211, 252]]}
+            />
+          </Card>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
