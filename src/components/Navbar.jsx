@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 const pages = [
   {
     title: "Home",
-    href: "#",
+    href: "/",
   },
   {
     title: "About",
