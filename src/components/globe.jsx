@@ -53,6 +53,8 @@ export function Globe({ className, config = GLOBE_CONFIG }) {
     }
   };
   useEffect(() => {
+    if (!canvasRef.current) return;
+
     const onResize = () => {
       if (canvasRef.current) {
         width = canvasRef.current.offsetWidth;
