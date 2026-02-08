@@ -55,6 +55,9 @@ export function Globe({ className, config = GLOBE_CONFIG }) {
   useEffect(() => {
     if (!canvasRef.current) return;
 
+    let globe = null;
+    let isMounted = true;
+
     const onResize = () => {
       if (canvasRef.current) {
         width = canvasRef.current.offsetWidth;
@@ -62,20 +65,35 @@ export function Globe({ className, config = GLOBE_CONFIG }) {
     };
     window.addEventListener("resize", onResize);
     onResize();
-    const globe = createGlobe(canvasRef.current, {
-      ...config,
-      width: width * 2,
-      height: width * 2,
-      onRender: (state) => {
-        if (!pointerInteracting.current) phi += 0.005;
-        state.phi = phi + rs.get();
-        state.width = width * 2;
-        state.height = width * 2;
-      },
-    });
-    setTimeout(() => (canvasRef.current.style.opacity = "1"), 0);
+
+    try {
+      globe = createGlobe(canvasRef.current, {
+        ...config,
+        width: width * 2,
+        height: width * 2,
+        onRender: (state) => {
+          if (!isMounted) return;
+          if (!pointerInteracting.current) phi += 0.005;
+          state.phi = phi + rs.get();
+          state.width = width * 2;
+          state.height = width * 2;
+        },
+      });
+
+      setTimeout(() => {
+        if (canvasRef.current && isMounted) {
+          canvasRef.current.style.opacity = "1";
+        }
+      }, 0);
+    } catch (error) {
+      console.error("Failed to create globe:", error);
+    }
+
     return () => {
-      globe.destroy();
+      isMounted = false;
+      if (globe) {
+        globe.destroy();
+      }
       window.removeEventListener("resize", onResize);
     };
   }, [rs, config]);
