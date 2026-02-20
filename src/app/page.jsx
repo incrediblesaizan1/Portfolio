@@ -47,7 +47,7 @@ export default function Home() {
         <Experiences />
         <TechStack />
         <Approach />
-        <Testimonials />
+       {/* <Testimonials /> */}
         <Contact />
         <Footer />
       </div>
