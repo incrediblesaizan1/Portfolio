@@ -33,10 +33,10 @@ const pages = [
     title: "Tech Stack",
     href: "/#techstack",
   },
-  {
-    title: "Testimonials",
-    href: "/#testimonials",
-  },
+  // {
+  //   title: "Testimonials",
+  //   href: "/#testimonials",
+  // },
   {
     title: "Contact",
     href: "/#contact",
